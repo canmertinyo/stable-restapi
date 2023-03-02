@@ -7,7 +7,7 @@ export async function connectDatabase(): Promise<void> {
   mongoose.set('strictQuery', true)
 
   return mongoose
-    .connect(dbUri)
+    .connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('database connected'))
     .catch((err: any) => {
       console.log('connection failed!' + err)
